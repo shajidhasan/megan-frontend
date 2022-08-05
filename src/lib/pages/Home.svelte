@@ -247,7 +247,7 @@
   >
     {#each notes as note_}
       <div class="border rounded-lg p-4 whitespace-pre-wrap">
-        {note_}
+        {note_.trim()}
       </div>
     {/each}
   </Sidebar>
