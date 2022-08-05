@@ -9,6 +9,8 @@
   import Sidebar from "../Sidebar.svelte";
   import type { Point } from "../../../lib/types";
 
+  export let source: string;
+  export let destination: string;
   export let coordinates: Point[];
 
   const dispatch = createEventDispatcher();
@@ -42,4 +44,13 @@
   }}
 >
   <div id="map" class="w-full aspect-square" />
+  <h1 class="text-lg">
+    From <span class="text-xl font-semibold first-letter:uppercase"
+      >{source}</span
+    >
+    to
+    <span class="text-xl font-semibold first-letter:uppercase"
+      >{destination}</span
+    >.
+  </h1>
 </Sidebar>

@@ -220,6 +220,8 @@
   />
 {:else if state === State.RoutePlanning}
   <RoutePlanning
+    {source}
+    {destination}
     {coordinates}
     on:close={() => {
       state = State.Idle;
