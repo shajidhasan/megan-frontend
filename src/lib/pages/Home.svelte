@@ -263,7 +263,7 @@
     }}
   >
     {#each tracks as track}
-      <div class="space-y-2">
+      <div class="space-y-3">
         <a href={track.url} target="_blank">
           <h1 class="text-2xl font-bold">{track.name}</h1>
         </a>
