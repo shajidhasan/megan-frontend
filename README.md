@@ -35,6 +35,53 @@ Our solution does almost everything the problem asked for.
 
 Unfortunately, since we couldn't manage a premium spotify account, Megan cannot play audio from Spotify.
 
+## Megan User Guide
+
+- ### Voice Recognition and Web Searching
+
+   Megan can listen and recognize user's voice and conduct a search on the search engnine.
+
+   If the user's accent is not understandable, Megan will give the user a warning that she couldn't recognize the command and show results close to the relevant topics      anyway.
+
+   So, the user has to just say, *"Linkin Park"* to view the search results on the music band Linkin Park.
+
+- ### Local News
+   Whoever wants to view local news has to just speak something like *"Show me some local news"* and Megan will find and show the latest local news.
+
+- ### Music recommendation
+   A user can ask for suggestions of musics of varied genres(almost any) and types.
+   On a voice command like *"Give me some happy music recommendations"*, Megan will find songs related to the specified criteria.
+
+   Or if the user wants to listen to musics of a particular genre, say, a folk song suggestion, he/she has to say *"Suggest me some folk songs"*.
+   The user may mix up the types and genres of the songs he wants to listen to by saying, *"Give me some happy folk songs"*.
+
+- ### Route Planning
+    Maps are really useful tools nowadays as cities keep growing and transportation become more and more necessary. One may need to find the quickest destination to a  place from his location. Given the proper command, Megan will find the quickest route from a location to another.
+
+   Say, we want to go from *"Mymensingh Zilla School"* to *"Bangladesh University of Engineering and Technology"*, then we'll first have to ask Megan to *"Show us a quickest route"* and then give her the initial location and then give her the final location.
+
+   The scenerio is somewhat like:
+   ```
+   User: "Show us a quickest route"
+
+   Megan: "Okay! What's the starting location?"
+
+   User: "Mymensingh Zilla School"
+
+   Megan: "Alright! What's the destination?"
+
+   User: "Bangladesh University of Engineering and Technology"
+
+   Megan: "Finding the quickest route"
+   ```
+
+   And then Megan will show a map with the desired fastest route from the starting location to the destination.
+
+- ### Notes Management
+   On the command *"Take a note"*, Megan will take a note and perhaps even save it if the user wants.
+
+   Say, the user wants to note, *"I love Bangladesh"* and save it, he might wanna say first, *"Take a note"*, and then *"I love Bangladesh"*, and then save the note simply by saying *"Save"*. The saved notes will be shown as a list.
+
 ## The APIs we used
 
 - Voice communication - For speech recognition and synthesis, we opted in for the Azure Speech services

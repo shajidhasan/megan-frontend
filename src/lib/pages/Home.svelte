@@ -18,6 +18,7 @@
   import { getCoordinates } from "../api/route";
   import Sidebar from "../components/Sidebar.svelte";
   import { addNote, getNotes } from "../api/notes";
+  import meganAudio from "../../assets/megan.mp3";
 
   let state: State = State.Idle;
   let meganState: MeganState = MeganState.Idle;
@@ -49,7 +50,8 @@
     return synthesize(text);
   };
 
-  const listen = () => {
+  const listen = async () => {
+    await new Audio(meganAudio).play();
     meganState = MeganState.Listening;
     return recognize();
   };
