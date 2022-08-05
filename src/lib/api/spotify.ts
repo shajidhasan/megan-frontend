@@ -2,7 +2,7 @@ import SpotifyWebApi from "spotify-web-api-js"
 import type { Track } from "../types";
 
 const spotify = new SpotifyWebApi();
-spotify.setAccessToken("BQAVhV9VUfbBDJ5L5jVAHx8ZQktfVlPWdQqX-uKCQk_oCKvhfjQx4-nK8E3KUWZnz1hOqI4jHF7HTyS5hivCHr0i5s3CYI84agLbCcmd-3IkgDf7IcGNE6ewnrlsLR1BsYOp3ibLMhDF58yPrRAkoak9Cp2aM1y7sNg-C-og-nGt95rLWkuU_csMFOyTt3w")
+spotify.setAccessToken("BQAow584t8u-9gDRWct7KD0cii6Ovj0-K1IjilWjN76VMfvZf66c-uA9oaK58224Gfpzl0YZ8v7JslOpqze0bVSV8Uw1GUPKcwLs4ZlmSkYu6c3H9ho7ScxukGL_3bwanCPqATbKxlH0_Aw5vra8wd3NE8vvWyN9Vq8q7RtrXU41PpOmvFaJvX7je9W6USw")
 
 export const getTracksByGenre = async (genres: string[]): Promise<Track[]> => {
   if (genres.length === 0) return getTracksByGenre(['acoustic'])
