@@ -17,7 +17,7 @@ export const getTracksByGenre = async (genres: string[]): Promise<Track[]> => {
 }
 
 export const getTracksByArtist = async (artist: string): Promise<Track[]> => {
-  if (artist === '') return getTracksByGenre(['acoustic'])
+  if (artist === '') return getTracksByGenre(['rock'])
   const tracks: Track[] = [];
   const response = await spotify.search(artist, ["artist"]);
   if (response.artists) {
@@ -29,7 +29,7 @@ export const getTracksByArtist = async (artist: string): Promise<Track[]> => {
       tracks.push({ name, artist, url: track.external_urls.spotify });
     })
   } else {
-    return getTracksByGenre(['acoustic'])
+    return getTracksByGenre(['rock'])
   }
   return tracks;
 }
