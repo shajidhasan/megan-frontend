@@ -8,7 +8,7 @@
 </script>
 
 <div
-  class="fixed top-0 bottom-0 right-0 w-1/2 bg-white/5  overflow-y-auto"
+  class="fixed top-0 bottom-0 right-0 w-1/2 bg-white/5 overflow-y-auto"
   transition:fly={{ x: 100 }}
 >
   <div class="space-y-8 py-8 px-12 relative">

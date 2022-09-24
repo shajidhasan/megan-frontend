@@ -5,6 +5,7 @@
     getArtist,
     getGenres,
     parseInstruction,
+    randomHelloPhrase,
     randomWaitPhrase,
   } from "../utilities";
   import { MeganState, State, type SearchResult, type Track } from "../types";
@@ -80,6 +81,25 @@
       speak("Here are some results.");
       meganState = MeganState.Idle;
       state = State.Search;
+    } else if (iType === "hello") {
+      await speak(randomHelloPhrase());
+      meganState = MeganState.Idle;
+      state = State.Idle;
+    } else if (iType === "need-data") {
+      await speak(
+        "Let me find some data plans for you according to your balance and past usage."
+      );
+      state = State.NeedData;
+      await speak("Which one would you like?");
+      await listen();
+      await speak("Done! This package is added to your account.");
+      meganState = MeganState.Idle;
+      state = State.Idle;
+    } else if (iType === "dashboard") {
+      await speak("Here is your dashboard.");
+      state = State.Dashboard;
+      await speak("It seems you will soon run out of data.");
+      meganState = MeganState.Idle;
     } else if (iType === "route") {
       await speak("Okay! What's the starting location?");
       source = await listen();
@@ -197,7 +217,7 @@
       {#if meganSpeech.length > 0}
         <p
           transition:fade
-          class="absolute text-xl font-semibold -top-12 -left-12 -right-12 text-center"
+          class="absolute text-lg font-semibold -top-12 -left-12 -right-12 text-center"
         >
           {meganSpeech}
         </p>
@@ -270,5 +290,45 @@
         <p class="font-semibold text-gray-50">{track.artist}</p>
       </div>
     {/each}
+  </Sidebar>
+{:else if state === State.NeedData}
+  <Sidebar
+    title="Data Packs"
+    on:close={() => {
+      state = State.Idle;
+    }}
+  >
+    <h1 class="text-xl font-semibold mb-8">Available balance: 39.82 taka</h1>
+    {#each [{ capacity: "10 GB", duration: "5 days", cost: "20 taka" }, { capacity: "5 GB", duration: "5 days", cost: "15 taka" }, { capacity: "20 GB", duration: "7 days", cost: "35 taka" }, { capacity: "2 GB", duration: "3 days", cost: "10 taka" }] as pack}
+      <div class="space-y-2">
+        <h1 class="text-4xl font-semibold">
+          {pack.capacity}<span class="text-base ml-2">{pack.duration}</span>
+        </h1>
+        <p>{pack.cost}</p>
+      </div>
+    {/each}
+  </Sidebar>
+{:else if state === State.Dashboard}
+  <Sidebar
+    title="Dashboard"
+    on:close={() => {
+      state = State.Idle;
+    }}
+  >
+    <div class="space-y-4">
+      <h1 class="text-3xl font-semibold">
+        <span class="text-xl opacity-80">Balance:</span> 39.82 taka
+      </h1>
+      <h1 class="text-3xl font-semibold">
+        <span class="text-xl opacity-80">Internet:</span>
+        <span class="text-red-200">0.2 GB [2 days remaining]</span>
+      </h1>
+      <h1 class="text-3xl font-semibold">
+        <span class="text-xl opacity-80">Voice:</span> 112 minutes [28 days remaining]
+      </h1>
+      <h1 class="text-xl font-semibold">
+        <span class="text-xl opacity-80">SMS:</span> 37 [9 days remaining]
+      </h1>
+    </div>
   </Sidebar>
 {/if}
