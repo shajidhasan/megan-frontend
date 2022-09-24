@@ -12,6 +12,8 @@ export const parseInstruction = (text: string): InstructionType => {
   text = text.toLowerCase();
   if (text.includes('local news')) {
     return 'news';
+  } else if (text.includes('arena')) {
+    return 'arena'
   } else if (text.includes('search')) {
     return 'search'
   } else if (text.includes('hello')) {

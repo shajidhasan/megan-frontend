@@ -85,6 +85,15 @@
       await speak(randomHelloPhrase());
       meganState = MeganState.Idle;
       state = State.Idle;
+    } else if (iType === "arena") {
+      state = State.Arena;
+      await speak(
+        "You guys have about 8.5 GB data in your arena account. How much do you need?"
+      );
+      await listen();
+      await speak("Okay. The said amount will be added to your account.");
+      state = State.Idle;
+      meganState = MeganState.Idle;
     } else if (iType === "need-data") {
       await speak(
         "Let me find some data plans for you according to your balance and past usage."
@@ -328,6 +337,27 @@
       </h1>
       <h1 class="text-xl font-semibold">
         <span class="text-xl opacity-80">SMS:</span> 37 [9 days remaining]
+      </h1>
+    </div>
+  </Sidebar>
+{:else if state === State.Arena}
+  <Sidebar
+    title="Arena"
+    on:close={() => {
+      state = State.Idle;
+    }}
+  >
+    <div class="space-y-4">
+      <h1 class="text-3xl font-semibold">
+        <span class="text-xl opacity-80">Arena Internet:</span> 8.5 GB
+      </h1>
+      <h1 class="text-3xl font-semibold">
+        <h1 class="text-3xl font-semibold">
+          <span class="text-xl opacity-80">Arena Voice:</span> 300 minutes
+        </h1>
+        <h1 class="text-xl font-semibold">
+          <span class="text-xl opacity-80">Arena SMS:</span> 500
+        </h1>
       </h1>
     </div>
   </Sidebar>

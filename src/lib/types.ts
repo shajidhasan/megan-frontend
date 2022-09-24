@@ -7,7 +7,8 @@ export const enum State {
   AddNote,
   ShowNotes,
   NeedData,
-  Dashboard
+  Dashboard,
+  Arena
 }
 
 export const enum MeganState {
@@ -36,7 +37,7 @@ export interface Track {
   url: string;
 }
 
-export const instructions = ['search', 'news', 'note', 'route', 'music', 'add-note', 'read-notes', 'hello', 'need-data', 'dashboard', 'unknown'] as const;
+export const instructions = ['arena', 'search', 'news', 'note', 'route', 'music', 'add-note', 'read-notes', 'hello', 'need-data', 'dashboard', 'unknown'] as const;
 export type InstructionType = typeof instructions[number];
 
 export interface Point {
