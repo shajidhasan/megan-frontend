@@ -96,7 +96,7 @@
       meganState = MeganState.Idle;
     } else if (iType === "need-data") {
       await speak(
-        "Let me find some data plans for you according to your balance and past usage."
+        "Let me find some internet packages according to your balance and past usage."
       );
       state = State.NeedData;
       await speak("Which one would you like?");
